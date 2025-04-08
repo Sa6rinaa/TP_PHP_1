@@ -1,8 +1,10 @@
 <?php
-$add=0;
-for ($i=1 ; $i<= 10; $i++) {
-    $add+=$i;
-    echo($add);
+$mult=1;
+for ($i=1 ; $i<= 9; $i++) {
+
+    $mult=$mult*$i;
+
+    echo($mult);
   }
  ?>
 
