@@ -1,10 +1,9 @@
 <?php
 $add=0;
-for ($i=1 ; $i<= 100; $i++) {
+for ($i=1 ; $i<= 10; $i++) {
     $add+=$i;
     echo($add);
   }
- echo($add);
  ?>
 
 
