@@ -22,8 +22,6 @@ $etudiants = [
 
 foreach ($etudiants as $etudiant) {
   echo  ("$etudiant[note] <br> "." $etudiant[nom]<br>");}
-
-
  ?>
 
 
