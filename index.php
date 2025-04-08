@@ -1,8 +1,14 @@
 <?php
-$fruits = ["pomme", "banane", "orange", "fraise", "kiwi"];
+$personne = [
+  "nom" => "Dupont",
+  "prenom" => "Jean",
+  "age" => 30,
+  "ville" => "Paris"
+];
 
-foreach ($fruits as $fruit) {
-  echo "$fruit <br>";}
+
+foreach ($personne as $personnes) {
+  echo "$personnes <br>";}
  ?>
 
 
