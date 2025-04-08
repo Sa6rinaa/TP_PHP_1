@@ -40,3 +40,18 @@ $jour = date('l');
  
  
  }
+
+$age=15;
+
+switch ("") {
+  case $age<=18:
+    echo "vous êtes grand";
+    break;
+   case $age<=15:
+      echo "vous êtes moyen";
+      break;
+   case $age<=10:
+      echo "vous êtes petit ";
+   break;  
+}
+
