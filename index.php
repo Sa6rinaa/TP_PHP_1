@@ -1,27 +1,48 @@
 <?php
-$fruits = ["pomme", "banane", "orange", "fraise", "kiwi"];
 
-foreach ($fruits as $fruit) {
-  echo "$fruit <br>";}
+$jour = date('l');
+$message = "bonjour";
 
-  $personne = [
-    "nom" => "Dupont",
-    "prenom" => "Jean",
-    "age" => 30,
-    "ville" => "Paris"
-  ];
+switch ("") {
+  case "lundi":
+    echo "Aujourd'hui c'est " . $jour . ": " . $message . "<br><br>";
+    break;
+  case "mardi":
+    echo "Aujourd'hui c'est " . $jour . ": " . $message . "<br><br>";
+    break;
+  case "mercredi":
+    echo "Aujourd'hui c'est " . $jour . ": " . $message . "<br><br>";
+    break;
+    case "mercredi":
+      echo "Aujourd'hui c'est " . $jour . ": " . $message . "<br><br>";
+      break;
+    default ;
+    echo "Aujourd'hui c'est " . $jour . ": " . $message . "<br><br>";
+}
 
-  foreach ($personne as $personnes) {
-    echo "$personnes <br>";}
+$note=15;
 
-$etudiants = [
-    ["nom" => "Martin", "note" => 15],
-    ["nom" => "Durand", "note" => 12],
-    ["nom" => "Petit", "note" => 18]
-];
+switch (""){
+  case $note<=18 :
+   echo  "Note: " . $note ."/20 - Appréciation:  Excellent (A+)";
+   break;
+   case  $note<=16 :
+   echo "Note: " . $note ."/20 - Appréciation:  Très bien (A)";
+   break;
+   case  $note<=14 :
+    echo "Note: " . $note . "/20 - Appréciation:  Bien";
+   break;
+   case  $note<=12 :
+    echo "Note: " . $note . "/20 - Appréciation: Assez bien";
+    break;
+    default ;
+    echo "Note: " . $note . "/20 - Appréciation: Passable";
 
-foreach ($etudiants as $etudiant) {
-  echo  ("$etudiant[note] <br> "." $etudiant[nom]<br>");}
+
+}
+
+
+
  ?>
 
 
