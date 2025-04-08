@@ -1,11 +1,8 @@
 <?php
-$mult=1;
-for ($i=1 ; $i<= 9; $i++) {
+$fruits = ["pomme", "banane", "orange", "fraise", "kiwi"];
 
-    $mult=$mult*$i;
-
-    echo($mult);
-  }
+foreach ($fruits as $fruit) {
+  echo "$fruit <br>";}
  ?>
 
 
