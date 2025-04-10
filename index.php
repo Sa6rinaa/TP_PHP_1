@@ -14,12 +14,12 @@ $add=0;
  }
 
 
-$mult=1;
+$mult=5;
 for ($i=1 ; $i<= 9; $i++) {
 
-    $mult=$mult*$i;
+    $result=$mult*$i;
 
-    echo($mult);
+    echo($result);
 
   }
  ?>
