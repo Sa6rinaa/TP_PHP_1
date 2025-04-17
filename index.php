@@ -42,7 +42,7 @@ public function getAge() {
 
     // public function sePresenter()
     public function sePresenter(){
-      echo "Nom : {$this->nom},  Prenom: {$this->prenom}, Age: {$this->age}"; 
+      echo "Nom : {$this->nom}  ,   Prenom : {$this->prenom} ,  Age : {$this->age}<br>"; 
     }
     
     // public function estMajeur()
