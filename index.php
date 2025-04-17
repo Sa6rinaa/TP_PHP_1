@@ -78,5 +78,6 @@ echo "<br>";
  echo $voiture->klaxonner();
 
 echo "<br>";
+$moto->getInfos();
 echo $moto->klaxonner();
 
