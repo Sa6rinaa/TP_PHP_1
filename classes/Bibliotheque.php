@@ -3,13 +3,20 @@
 class Bibliotheque {
     private $pdo;
     private $livres = [];
+    private $host = 'localhost';
+    private $dbname = 'bibliotheque';
+    private $username = 'root';
+    private $password ='';
+    private $charset ='utf8mb4';
+   
     
-    public function __construct($configFile,$pdo,$livres) {
-        // Charger la configuration de la base de données
-        $config = require $configFile;
+    public function __construct($livres) {
+        $this->livres=$livres;
+       
     
         
 $dsn = "mysql:host=$host;dbname=$dbname;charset=$charset";
+
 $options = [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
@@ -18,24 +25,29 @@ $options = [
 
         // Connexion à la base de données
         try {
-            $pdo = new PDO($dsn,$options);      
+            $pdo = new PDO($dsn,$options,$password,$username);      
             echo "Connexion à la base de données réussie.<br>";
 
         } 
         catch (PDOException $e) {
             die("Erreur de connexion à la base de données: " . $e->getMessage());
         }
-    }
+        
     public function ajouterLivre($livre) {
-        $type = getType($livre);}
+        $type = getInfos($livre);}
           // Déterminer le type de livre
-        
+        }
+    }
+ //Préparer l'insertion dans la base de données
+ $sql = "INSERT INTO livres (auteur, titre, disponible) VALUES (?,?,?)";
+ $stmt = $pdo->prepare($sql);
+ $stmt->execute(["222","4545", 38 ]);
 
- // Préparer l'insertion dans la base de données
-        // $sql = "INSERT INTO livres (titre, auteur, disponible ) VALUES (?, ?, ?)";
-        // $stmt = $pdo->prepare($sql);
-        // $stmt->execute(['titre' => $livre->getTitre(),'auteur' => $livre->getAuteur(), 'disponible' => $livre->disponible() ? 1 : 0,]);
-        
+      
+
+
+
+    
 //     public function emprunterLivre($id) {
 // Utiliser le foreach
 //             }
@@ -57,7 +69,7 @@ $options = [
     // public function getLivresParAuteur($auteur) {
     //     $livresAuteur;
     //Utiliser le foreach
-    }
+
     
     // public function chargerLivres() {
     //     $sql = "SELECT * FROM livres";
