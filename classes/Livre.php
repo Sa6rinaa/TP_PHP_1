@@ -60,5 +60,8 @@ public function __construct($id,$titre,$auteur,$anneePublication, $disponible){
 }
 
     }
+ $livre = new Livre(45, "Pasdetitre", "pas d'auteur", 1987, "Non");
 
-    
+ $livre->getInfos();
+ echo $livre->retourner();
+ 
