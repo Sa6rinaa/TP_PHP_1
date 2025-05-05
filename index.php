@@ -1,83 +1,50 @@
 <?php
-// Classe parente
-class Vehicule {
-    protected $marque;
-    protected $modele;
-    protected $annee;
-    
-    public function __construct($marque,$modele,$annee) {
-      $this->marque=$marque;
-      $this->modele=$modele;
-      $this->annee=$annee;
-    }
-    
-    public function getInfos() {
-        echo "Marque : {$this->marque}  ,  Modele : {$this->modele}  ,    Année : {$this->annee}  ,";
-    }
-    
-    public function demarrer() {
-        return "Le véhicule démarre.";
-    }
+
+require_once 'classes/Bibliotheque.php';
+
+
+$biblio = new Bibliotheque();
+
+
+$biblio->chargerLivres();
+
+
+$livre1 = ['titre' => '12', 'auteur' => 'Victor Hugo', 'type' => 'roman', 'disponible' => 1];
+$livre2 = ['titre' => '13', 'auteur' => 'Goscinny', 'type' => 'bd', 'disponible' => 1];
+$livre3 = ['titre' => '14', 'auteur' => 'Goscinny', 'type' => 'bd', 'disponible' => 1];
+
+$biblio->ajouterLivre($livre1);
+$biblio->ajouterLivre($livre2);
+$biblio->ajouterLivre($livre3);
+
+$biblio->chargerLivres();
+
+
+echo "<h2>Liste des livres :</h2>";
+foreach ($biblio->getLivresDisponibles() as $livre) {
+    echo "Titre : {$livre['titre']}, Auteur : {$livre['auteur']}, Type : {$livre['type']}, Disponible : " . ($livre['disponible'] ? 'Oui' : 'Non') . "<br>";
 }
 
-// Classe enfant qui hérite de Vehicule
-class Voiture extends Vehicule {
-    private $nombrePortes;
-    private $typeCarburant;
-    
-    public function __construct($marque,$modele,$annee,$nombrePortes,$typeCarburant) {
-        // Appel du constructeur parent
-        parent::__construct($marque, $modele, $annee);
-        
-        // Initialisation des propriétés spécifiques
-        $this->nombreportes = $nombrePortes;
-        $this->typecarburant = $typeCarburant;
-    }
-    
-    // Surcharge de la méthode getInfos()
-    public function getInfos() {
-      parent::getInfos();
-      echo "  Nombre de portes :  {$this->nombreportes} , Type de carburant :  {$this->typecarburant} ";
-    }
-    
-    // Méthode spécifique
-    public function klaxonner() {
-        return  "Klaxonne !"; 
-    }
+
+if ($livre2['auteur'] === $livre3['auteur']) {
+    echo "<br>Les BD sont de la même série (auteur : {$livre2['auteur']})<br>";
 }
 
-// Classe enfant qui hérite de Vehicule
-class Moto extends Vehicule {
-    private $cylindree;
-    
-    public function __construct($marque, $modele, $annee, $cylindree) {
-        parent::__construct($marque, $modele, $annee);
-        $this->cylindree = $cylindree;
-    }
 
-    public function getInfos() {
-        parent::getInfos();
-        echo "Cylindrée : {$this->cylindree} <br>";
-    }
+echo "<br>--- Emprunt du livre avec ID 1 ---<br>";
+$biblio->emprunterLivre(1);
 
-    public function klaxonner() {
-        return "Klaxon de moto !";
+echo "<br>--- Retour du livre avec ID 1 ---<br>";
+$biblio->retournerLivre(1);
+
+
+echo "<h2>Livres disponibles :</h2>";
+$livresDispo = $biblio->getLivresDisponibles();
+if (count($livresDispo) === 0) {
+    echo "Aucun livre disponible pour le moment.<br>";
+} else {
+    foreach ($livresDispo as $livre) {
+        echo "📘 {$livre['titre']} par {$livre['auteur']}<br>";
     }
-    
-  
 }
-
-// Utilisation des classes
-$voiture = new Voiture("Renault", "Clio", 2020, 5, "Essence");
-$moto = new Moto("YHA", "777", 2021, "Essence");
-
-$voiture->getInfos();
-
-
-echo "<br>";
- echo $voiture->klaxonner();
-
-echo "<br>";
-$moto->getInfos();
-echo $moto->klaxonner();
-
+?>
